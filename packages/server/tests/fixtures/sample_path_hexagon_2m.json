@@ -1,0 +1,37 @@
+{
+  "name": "hexagon_loop_2m",
+  "points": [
+    [
+      2.0,
+      0.0
+    ],
+    [
+      1.0,
+      1.73205080757
+    ],
+    [
+      -1.0,
+      1.73205080757
+    ],
+    [
+      -2.0,
+      0.0
+    ],
+    [
+      -1.0,
+      -1.73205080757
+    ],
+    [
+      1.0,
+      -1.73205080757
+    ],
+    [
+      2.0,
+      0.0
+    ]
+  ],
+  "path_length_m": 12.00000000000389,
+  "expected_net_displacement_m": 0.0,
+  "closed": true,
+  "note": "Closed regular hexagon side 2m (cycle 16k)"
+}
