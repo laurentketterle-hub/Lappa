@@ -1,0 +1,45 @@
+{
+  "name": "figure8_loop",
+  "points": [
+    [
+      0.0,
+      0.0
+    ],
+    [
+      1.5,
+      1.0
+    ],
+    [
+      3.0,
+      0.0
+    ],
+    [
+      1.5,
+      -1.0
+    ],
+    [
+      0.0,
+      0.0
+    ],
+    [
+      -1.5,
+      1.0
+    ],
+    [
+      -3.0,
+      0.0
+    ],
+    [
+      -1.5,
+      -1.0
+    ],
+    [
+      0.0,
+      0.0
+    ]
+  ],
+  "path_length_m": 14.422205101855955,
+  "expected_net_displacement_m": 0.0,
+  "closed": true,
+  "note": "Closed figure-8 polyline for sim fixtures (cycle 16l)"
+}
