@@ -1,0 +1,45 @@
+{
+  "name": "scurve_loop",
+  "points": [
+    [
+      0.0,
+      0.0
+    ],
+    [
+      1.5,
+      1.0
+    ],
+    [
+      3.0,
+      1.0
+    ],
+    [
+      4.5,
+      0.0
+    ],
+    [
+      4.5,
+      -1.0
+    ],
+    [
+      3.0,
+      -2.0
+    ],
+    [
+      1.5,
+      -2.0
+    ],
+    [
+      0.0,
+      -1.0
+    ],
+    [
+      0.0,
+      0.0
+    ]
+  ],
+  "path_length_m": 12.21110255092798,
+  "expected_net_displacement_m": 0.0,
+  "closed": true,
+  "note": "Closed S-curve polyline for sim fixtures (cycle 16o)"
+}
