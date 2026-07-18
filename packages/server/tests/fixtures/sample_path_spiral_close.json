@@ -1,0 +1,41 @@
+{
+  "name": "spiral_close_loop",
+  "points": [
+    [
+      0.0,
+      0.0
+    ],
+    [
+      1.0,
+      0.5
+    ],
+    [
+      1.5,
+      1.5
+    ],
+    [
+      0.5,
+      2.5
+    ],
+    [
+      -1.0,
+      2.0
+    ],
+    [
+      -1.5,
+      0.5
+    ],
+    [
+      -0.5,
+      -0.5
+    ],
+    [
+      0.0,
+      0.0
+    ]
+  ],
+  "path_length_m": 8.933879543600908,
+  "expected_net_displacement_m": 0.0,
+  "closed": true,
+  "note": "Closed spiral-ish polyline for sim fixtures (cycle 16m)"
+}
