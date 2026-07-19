@@ -1,0 +1,37 @@
+{
+  "name": "hexagon_loop",
+  "points": [
+    [
+      2.0,
+      0.0
+    ],
+    [
+      1.0,
+      1.7321
+    ],
+    [
+      -1.0,
+      1.7321
+    ],
+    [
+      -2.0,
+      0.0
+    ],
+    [
+      -1.0,
+      -1.7321
+    ],
+    [
+      1.0,
+      -1.7321
+    ],
+    [
+      2.0,
+      0.0
+    ]
+  ],
+  "path_length_m": 12.000170408185063,
+  "expected_net_displacement_m": 0.0,
+  "closed": true,
+  "note": "Closed regular hexagon polyline for sim fixtures (cycle 16q)"
+}
