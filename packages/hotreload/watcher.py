@@ -115,7 +115,7 @@ class ColconWatcher:
     def restart_node(self, container_name: str = "lappa-dev") -> bool:
         """Restart the node inside Docker container."""
         try:
-            result = subprocess.run(
+            _ = subprocess.run(
                 ["docker", "exec", container_name, "pkill", "-f", "lappa"],
                 capture_output=True, text=True, timeout=10,
             )
