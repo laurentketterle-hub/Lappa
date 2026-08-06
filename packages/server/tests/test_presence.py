@@ -1,6 +1,8 @@
 import time
+
 import pytest
-from lappa.presence import PresenceStore, PRESENCE_TTL_S, _presence_path
+
+from lappa.presence import PRESENCE_TTL_S, PresenceStore, _presence_path
 
 
 @pytest.fixture(autouse=True)
