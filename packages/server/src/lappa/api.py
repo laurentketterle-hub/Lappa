@@ -15,7 +15,6 @@ from lappa import (
 from lappa.config import DEMOS_ROOT, ensure_dirs
 from lappa.package_loader import list_demo_packages, load_package, read_file, write_file
 from lappa.sim.session import SESSION
-from lappa.presence import PRESENCE
 
 try:
     from fastapi import FastAPI, HTTPException
@@ -389,41 +388,6 @@ def api_model_attach(body: ModelAttachBody) -> dict:
         )
     except (ValueError, FileNotFoundError) as e:
         raise HTTPException(400, str(e)) from e
-
-
-# --- Collaborative workspace presence ---
-
-class PresenceHeartbeatBody(BaseModel):
-    peer_name: str = ""
-    workspace_name: str = ""
-
-
-@app.post("/api/presence/heartbeat")
-def api_presence_heartbeat(body: PresenceHeartbeatBody) -> dict:
-    """Register or refresh this peer in the workspace presence registry."""
-    return PRESENCE.heartbeat(
-        peer_name=body.peer_name,
-        workspace_name=body.workspace_name,
-    )
-
-
-@app.post("/api/presence/leave")
-def api_presence_leave() -> dict:
-    """Remove this peer from the presence registry."""
-    return PRESENCE.leave()
-
-
-@app.get("/api/presence")
-def api_presence() -> dict:
-    """Return current workspace presence snapshot."""
-    return PRESENCE.snapshot()
-
-
-@app.get("/api/presence/peers")
-def api_presence_peers() -> list[dict]:
-    """Return only the peer list."""
-    snap = PRESENCE.snapshot()
-    return snap.get("peers", [])
 
 
 @app.post("/api/models/fit")
