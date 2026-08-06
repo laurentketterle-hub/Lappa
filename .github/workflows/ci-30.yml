@@ -1,0 +1,12 @@
+name: CI #30
+on:
+  pull_request:
+  push:
+    branches: [feat/impl-30-1785993061]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: echo OK #30
