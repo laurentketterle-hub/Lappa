@@ -362,6 +362,7 @@ ENGINES: dict[str, type[BaseEngine]] = {
     "diff_drive_2w": DiffDrive2W,
     "omni_3w": Omni3W,
     "tricycle_3w": Tricycle3W,
+    "tricycle_1fw2rw": Tricycle3W,  # alias for compatibility
     "ackermann_4w": Ackermann4W,
     "simple_arm": SimpleArm,
     "mecanum_4w": Mecanum4W,
