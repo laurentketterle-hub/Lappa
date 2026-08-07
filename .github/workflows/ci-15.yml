@@ -92,29 +92,32 @@ jobs:
 
           # Start sim with hot-reload enabled
           status = SESSION.start('diff_drive_2w')
-          assert status['running'] is True, f'Sim not running: {status}'
+          assert status['state']['running'] is True, f'Sim not running: {status}'
           assert SESSION.hot_reload is True, 'Hot-reload should be enabled'
-          print(f'✓ Sim started: {status[\"demo\"]} mode={status[\"mode\"]} hot_reload={SESSION.hot_reload}')
+          print(f'✓ Sim started: {status[\"state\"][\"demo\"]} mode={status[\"state\"][\"mode\"]} hot_reload={SESSION.hot_reload}')
 
-          time.sleep(0.5)
+          # Tick the simulation a few times to advance state
+          for _ in range(5):
+              SESSION.tick()
+              time.sleep(0.1)
 
           # Verify state evolves (sim is moving)
           status = SESSION.status()
-          assert status['t'] > 0, f'Sim time not advancing: t={status[\"t\"]}'
-          print(f'✓ Sim time advancing: t={status[\"t\"]:.3f}s')
+          assert status['state']['t'] > 0, f'Sim time not advancing: t={status[\"state\"][\"t\"]}'
+          print(f'✓ Sim time advancing: t={status[\"state\"][\"t\"]:.3f}s')
 
           # Verify trajectory recording
-          assert len(status['trajectory']) > 0, 'No trajectory points recorded'
-          print(f'✓ Trajectory recorded: {len(status[\"trajectory\"])} points')
+          assert len(SESSION.trajectory) > 0, 'No trajectory points recorded'
+          print(f'✓ Trajectory recorded: {len(SESSION.trajectory)} points')
 
           # Verify twist values (teleop commands active)
-          twist = status.get('twist', {})
+          twist = status['state'].get('twist', {})
           print(f'✓ Twist: linear_x={twist.get(\"linear_x\", 0):.4f} angular_z={twist.get(\"angular_z\", 0):.4f}')
 
           # Stop and verify cleanup
           SESSION.stop()
           final = SESSION.status()
-          assert final['running'] is False, 'Sim should be stopped'
+          assert final['state']['running'] is False, 'Sim should be stopped'
           print(f'✓ Sim stopped cleanly')
           print(f'✓ All hot-reload lifecycle checks passed')
           "
@@ -134,7 +137,7 @@ jobs:
 
           # Start sim with package watching
           status = SESSION.start('diff_drive_2w', package_path=pkg_dir)
-          assert status['running'], 'Sim should be running'
+          assert status['state']['running'], 'Sim should be running'
           print(f'✓ Sim started with hot-reload watching {pkg_dir}')
 
           time.sleep(0.3)
@@ -150,7 +153,7 @@ jobs:
           # Stop
           SESSION.stop()
           final = SESSION.status()
-          assert final['running'] is False
+          assert final['state']['running'] is False
 
           # Verify logs contain hot-reload activity
           logs = final.get('logs', [])
