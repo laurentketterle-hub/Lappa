@@ -16,10 +16,10 @@ QApplication = QtWidgets.QApplication
 QPushButton = QtWidgets.QPushButton
 QToolButton = QtWidgets.QToolButton
 
-from lappa.config import DEMOS_ROOT
-from lappa.gui.main_window import MainWindow, SimCanvas
-from lappa.package_loader import load_package
-from lappa.sim.session import SESSION
+from lappa.config import DEMOS_ROOT  # noqa: E402
+from lappa.gui.main_window import MainWindow, SimCanvas  # noqa: E402
+from lappa.package_loader import load_package  # noqa: E402
+from lappa.sim.session import SESSION  # noqa: E402
 
 
 def _docker_unavailable() -> dict:

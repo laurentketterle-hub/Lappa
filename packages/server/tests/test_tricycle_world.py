@@ -8,8 +8,8 @@ from pathlib import Path
 DEMO_ROOT = Path(__file__).resolve().parents[2] / "demos" / "tricycle_3w"
 sys.path.insert(0, str(DEMO_ROOT))
 
-from tricycle_3w.slam_bridge import _display_map_cells
-from tricycle_3w.teleop import (
+from tricycle_3w.slam_bridge import _display_map_cells  # noqa: E402
+from tricycle_3w.teleop import (  # noqa: E402
     WAREHOUSE_WAYPOINTS,
     OccupancyWorld,
 )
